@@ -10,7 +10,7 @@ liArray[0].addEventListener("click", select_tab);
 // 
 // return li#tab
 function select_tab(){
-	
+	return liArray
 }
 
 
