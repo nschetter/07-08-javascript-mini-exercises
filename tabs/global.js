@@ -76,6 +76,21 @@ function showTab() {
       // Stop the browser following the clicked link and adding the link to the browser history.
       return false;
     }
+    
+//This helper function returns the first child of a specified element that matches a specified tag name. init() calls this function to retrieve the a (link) element inside each list item in the tabs list.
+/* function getFirstChildWithTagName 
+ *  
+ * element - specified element inside each list item
+ * tagName - specified tag name of the element
+ *           
+ * Returns first child of element matching tagName  
+ */    
+function getFirstChildWithTagName(element, tagName) {
+  for (var i = 0; i < element.childNodes.length; i++) {
+    if (element.childNodes[i].nodeName == tagName)
+      return element.childNodes[i];
+  }
+    }
 
 
 
