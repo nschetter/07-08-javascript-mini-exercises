@@ -1,3 +1,10 @@
+/*
+ * DECLARING VARIABLES that have arrays 
+ */
+
+var tabLinks = new Array();
+var contentDivs = new Array();
+
 
 /*
  * function init()
@@ -42,47 +49,36 @@ function init(){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function select_tab
-//
-//
-// 
-// return li#tab
-function select_tab(){
-	return liArray
-}
-
-function showTab(){
-  
-}
-
-/* function display_text
+/*
+ * function showTab()
  *
- * tab - compare tab with li#tab1 clicked 
+ * whenever a tab link is clicked. It highlights the selected tab and shows the associated content div. 
+ * It also dims all other tabs and hides all other content divs
  *
- * return changing text in div#display-window
+ * returns Boolean
  */ 
+function showTab() {
+	  // The function extracts the selected ID from the clicked link's href attribute and stores it in selectedId.
+      var selectedId = getHash( this.getAttribute('href') );
+	  // It then loops through all the IDs.
+      for ( var id in contentDivs ) {
+		  // Highlight the selected tab, and dim all others.
+        if ( id == selectedId ) {
+          tabLinks[id].className = 'selected';
+          contentDivs[id].className = 'tabContent';
+		  // Also show the selected content div, and hide all others.
+        } else {
+          tabLinks[id].className = '';
+          contentDivs[id].className = 'tabContent hide';
+        }
+      }
 
-function display_text(tab) {
-	var tab = select_tab()
-	if (select_tab() == "tab-1") {
-		document.getElementById("display-window").innerText = "This is Tab 1";
-	} else if (select_tab() == "tab-2") {
-		document.getElementById("display-window").innerText = "This is Tab 2. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
-	} else {
-		document.getElementById("display-window").innerText = "This is Tab 3. more stuff";
-	}
-};
+      // Stop the browser following the clicked link and adding the link to the browser history.
+      return false;
+    }
+
+
+
+
+
+
