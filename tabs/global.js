@@ -1,3 +1,4 @@
+
 /*
  * DECLARING VARIABLES that have arrays 
  */
@@ -11,7 +12,7 @@ var contentDivs = new Array();
  *
  * sets up the tabs.
  */ 
-function init(){
+function init() {
   var tabListItems = document.getElementById('tabs').childNodes;
   // loops through all the li elements in the tabs unordered list   (.childNodes grabs all li's in ul)
   for (var i = 0; i < tabListItems.length; i++) {
@@ -32,7 +33,7 @@ function init(){
   var i = 0;
   // It assigns an onclick event handler function called showTab() to each tab link,
   for (var id in tabLinks) {
-    tabLinks[id].onclick = showTab;
+    tabLinks[id].onclick = showTab();
 	//and highlights the first tab by setting its CSS class to 'selected'.
     tabLinks[id].onfocus = function() {this.blur()};
     if (i == 0) tabLinks[id].className = 'selected';
@@ -90,7 +91,7 @@ function getFirstChildWithTagName(element, tagName) {
     if (element.childNodes[i].nodeName == tagName)
       return element.childNodes[i];
   }
-    };
+}
 
 
 //The getHash() helper function returns the portion of a URL after any hash symbol. Used by init() and showTab() to extract the content div ID referenced in a tab link.
@@ -98,7 +99,7 @@ function getFirstChildWithTagName(element, tagName) {
 function getHash(url) {
   var hashPos = url.lastIndexOf ( '#' );
   return url.substring( hashPos + 1);
-    };
+}
 
 
 
