@@ -1,7 +1,33 @@
 var liArray = document.querySelectorAll("li");
 
 
-liArray[0].addEventListener("click", select_tab);
+liArray.addEventListener(MouseEvent.CLICK, showTab);
+
+function init(){
+  var tabListItems = document.getElementById('tabs').childNodes;
+  for (var i = 0; i < tabListItems.length; i++) {
+    if ( tabListItems[i].nodeName == "LI") {
+      var tabLink = getFirstChildWithTagName( tabListItems[i], 'A');
+      var id = getHash( tabLink.getAttribute('href'));
+      tabLinks[id] = tabLink;
+      contentDivs[id] = document.getElementById(id);
+    }
+  }
+  var i = 0;
+  
+  for (var id in tabLinks) {
+    tabLinks[id].onclick = showTab;
+    tabLinks[id].onfocus = function() {this.blur()};
+    if (i == 0) tabLinks[id].className = 'selected';
+    i++;
+  }
+  var i = 0;
+  
+  for (var id in contentDivs) {
+    if (i != 0) contentDivs[id].className = 'tabContent hide';
+    i++;
+  }
+}
 
 
 // function select_tab
@@ -13,7 +39,9 @@ function select_tab(){
 	return liArray
 }
 
-
+function showTab(){
+  
+}
 
 /* function display_text
  *
