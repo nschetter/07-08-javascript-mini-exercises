@@ -59,7 +59,7 @@ function init(){
  */ 
 function showTab() {
 	  // The function extracts the selected ID from the clicked link's href attribute and stores it in selectedId.
-      var selectedId = getHash( this.getAttribute('href') );
+      var selectedId = getHash( tabLink.getAttribute('href') );
 	  // It then loops through all the IDs.
       for ( var id in contentDivs ) {
 		  // Highlight the selected tab, and dim all others.
