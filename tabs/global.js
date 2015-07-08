@@ -90,7 +90,23 @@ function getFirstChildWithTagName(element, tagName) {
     if (element.childNodes[i].nodeName == tagName)
       return element.childNodes[i];
   }
-    }
+    };
+
+
+//The getHash() helper function returns the portion of a URL after any hash symbol. Used by init() and showTab() to extract the content div ID referenced in a tab link.
+
+function getHash(url) {
+  var hashPos = url.lastIndexOf ( '#' );
+  return url.substring( hashPos + 1);
+    };
+
+
+
+
+
+
+
+
 
 
 
