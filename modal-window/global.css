@@ -22,8 +22,9 @@ p {
   
 }
 
-nav {
-  display:inline-block;
+nav ul li{
+  display: inline-block;
+  list-style-type: none;
 }
 
 ul  {
