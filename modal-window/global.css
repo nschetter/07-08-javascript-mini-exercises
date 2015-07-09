@@ -43,7 +43,8 @@ div {
   
 }
 
-#wrapper {
+#wrapper div {
+  display: none;
   
 }
 
@@ -53,4 +54,10 @@ div {
 
 #contact  {
   
+}
+
+button {
+  top: 0;
+  position: relative;
+  float: right;
 }
